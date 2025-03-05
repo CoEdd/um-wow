@@ -32,7 +32,9 @@
     padding: 20px;
     height: calc(100% - 60px); /* Adjust for header height */
     overflow-y: auto;
-  }
+    color: #333;  /* Darker text for better contrast */
+    background-color: #f9f9f9; /* Slightly lighter background for contrast */
+}
   
   /* Close button for chatbot */
   .chatbot-close {
