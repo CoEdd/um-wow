@@ -1,0 +1,245 @@
+@import url('https://fonts.cdnfonts.com/css/ica-rubrik-black');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider {
+    position: absolute;
+    width: 230px;
+    height: 300px;
+    top: 22%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(800px); /* Reduced perspective for smaller radius */
+    animation: autoRun 30s linear infinite;
+    z-index: 2;
+}
+
+@keyframes autoRun {
+    from {
+        transform: perspective(800px) rotateX(-6deg) rotateY(0deg);
+    }
+    to {
+        transform: perspective(800px) rotateX(-6deg) rotateY(360deg);
+    }
+}
+
+.item {
+    position: absolute;
+    inset: 0;
+    transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        translateZ(350px); /* Reduced translateZ for a smaller radius */
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    transform-style: preserve-3d; /* Enable 3D effect */
+}
+
+/* 3D effect for images */
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    box-shadow: inset 0 0 0 2px #fff, 0 5px 15px rgba(0, 0, 0, 0.5); /* Thickness effect */
+    border-radius: 8px; /* Optional: rounded edges for a smoother look */
+    transform-style: preserve-3d; /* Enable 3D effect */
+}
+
+/* Add thickness to images */
+.image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    transform: translateZ(-20px); /* Thickness depth */
+    box-shadow: inset 0 0 0 2px #fff, 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.item:hover .image {
+    transform: rotateY(10deg) rotateX(5deg) scale(1.05); /* 3D rotation on hover */
+}
+
+.content {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1400px, 100vw);
+    height: max-content;
+    padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+.author {
+    font-family: Poppins;
+    text-align: right;
+    max-width: 200px;
+}
+
+.content h2 {
+    font-size: 3em;
+}
+
+.model {
+    background-image: url('/images/model.png');
+    width: 100%;
+    height: 75vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-size: auto 130%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    z-index: 1;
+}
+
+@media screen and (max-width: 1023px) {
+    .slider {
+        width: 160px;
+        height: 200px;
+        left: calc(50% - 80px);
+    }
+    .item {
+        transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(250px); /* Adjusted for smaller screens */
+    }
+    .author {
+        color: #fff;
+        padding: 20px;
+        text-shadow: 0 10px 20px #000;
+        z-index: 2;
+        max-width: unset;
+        width: 100%;
+        text-align: center;
+        padding: 0 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .slider {
+        width: 100px;
+        height: 150px;
+        left: calc(50% - 50px);
+    }
+    .item {
+        transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(150px); /* Further reduced for mobile screens */
+    }
+}
+
+/* Overlay Styles */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.overlay-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.4s ease;
+    color: #000; 
+}
+
+.overlay-content h2 {
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+    color: #000;  /* Ensure heading text is black */
+}
+
+.overlay-content p {
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: #000;  /* Ensure paragraph text is black */
+}
+
+.overlay-content button {
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.overlay-content button:hover {
+    background-color: #555;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); }
+    to { transform: translateY(0); }
+}
+
+/* Carousel Styles (unchanged) */
+.banner {
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider {
+    position: absolute;
+    width: 230px;
+    height: 300px;
+    top: 22%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(800px);
+    animation: autoRun 30s linear infinite;
+    z-index: 2;
+}
+
+.item {
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+    transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        translateZ(350px);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    transform-style: preserve-3d;
+}
+
+.item:hover .image {
+    transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}

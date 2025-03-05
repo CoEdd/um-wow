@@ -1,0 +1,212 @@
+/* styles/CountdownBlock.module.css */
+.countdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .countdownBlockBackface {
+    position: relative;
+    width: 70px;
+    background: #191A23;
+    border-radius: 8px;
+    overflow: hidden;
+    perspective: 200px;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+  
+  @media (min-width: 768px) {
+    .countdownBlockBackface {
+      width: 148px;
+    }
+  }
+  
+  .countdownBlock {
+    position: relative;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 67px;
+    text-align: center;
+    letter-spacing: -1px;
+    color: #FB5E84;
+    z-index: 1;
+    margin-bottom: 4px;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif; /* Apply Montserrat font to numbers */
+  }
+  
+  @media (min-width: 768px) {
+    .countdownBlock {
+      font-size: 80px;
+      letter-spacing: -2.4px;
+      line-height: 146px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+    }
+  }
+  
+  .countdownBlock::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 5px);
+    background: #343650;
+    border-radius: 4px;
+    content: "";
+    z-index: -1;
+  }
+  
+  @media (min-width: 768px) {
+    .countdownBlock::before {
+      border-radius: 8px;
+    }
+  }
+  
+  .countdownBlock::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(50% - 1px);
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 4px 4px 0px 0px;
+    content: "";
+  }
+  
+  @media (min-width: 768px) {
+    .countdownBlock::after {
+      border-radius: 8px 8px 0px 0px;
+    }
+  }
+  
+  @keyframes flipTop {
+    from {
+      transform: rotateX(0deg);
+    }
+    to {
+      transform: rotateX(90deg);
+      z-index: 0;
+    }
+  }
+  
+  @keyframes flipBottom {
+    from {
+      transform: rotateX(-90deg);
+    }
+    to {
+      transform: rotateX(0deg);
+      z-index: -1;
+    }
+  }
+  
+  .top {
+    width: 100%;
+    height: calc(50% - 1px);
+    transform-origin: bottom;
+    overflow: hidden;
+    background: #343650;
+    font-family: 'Montserrat', sans-serif; /* Apply Montserrat font to numbers */
+  }
+  
+  .top.flip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation-name: flipTop;
+    animation-duration: 0.25s;
+    animation-fill-mode: both;
+    z-index: 0;
+    font-family: 'Montserrat', sans-serif; /* Apply Montserrat font to numbers */
+  }
+  
+  .bottom {
+    width: 100%;
+    height: calc(50% + 1px);
+    line-height: 0;
+    overflow: hidden;
+    transform-origin: top;
+    background: #343650;
+    font-family: 'Montserrat', sans-serif; /* Apply Montserrat font to numbers */
+  }
+  
+  .bottom.flip {
+    position: absolute;
+    bottom: 0;
+    animation-name: flipBottom;
+    animation-duration: 0.25s;
+    animation-delay: 0.5s;
+    animation-fill-mode: both;
+    font-family: 'Montserrat', sans-serif; /* Apply Montserrat font to numbers */
+  }
+  
+  .countdownBlockOverlay {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    transform: scaleY(0.5) translateY(-3px);
+  }
+  
+  .countdownBlockSide::before {
+    position: absolute;
+    top: calc(50% - 4px);
+    left: -3px;
+    width: 6px;
+    height: 6px;
+    background: #191A23;
+    border-radius: 50%;
+    content: "";
+  }
+  
+  @media (min-width: 768px) {
+    .countdownBlockSide::before {
+      top: calc(50% - 7px);
+      left: -6px;
+      width: 12px;
+      height: 12px;
+    }
+  }
+  
+  .countdownBlockSide::after {
+    position: absolute;
+    top: calc(50% - 4px);
+    right: -3px;
+    width: 6px;
+    height: 6px;
+    background: #191A23;
+    border-radius: 50%;
+    content: "";
+  }
+  
+  @media (min-width: 768px) {
+    .countdownBlockSide::after {
+      top: calc(50% - 7px);
+      right: -6px;
+      width: 12px;
+      height: 12px;
+    }
+  }
+  
+  .label {
+    font-weight: bold;
+    font-size: 7px;
+    line-height: 9px;
+    text-align: center;
+    letter-spacing: 3px;
+    color: #8385A9;
+    margin-top: 9px;
+    /* Default font for labels */
+  }
+  
+  @media (min-width: 768px) {
+    .label {
+      font-size: 14px;
+      line-height: 19px;
+      letter-spacing: 6px;
+      margin-top: 16px;
+    }
+  }

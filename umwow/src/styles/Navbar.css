@@ -1,0 +1,66 @@
+/* General Styles */
+.navigation-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Logo Section */
+  .UMWOW-logo .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  /* Middle Menu Section */
+  .mid-menu-selection {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .icon-instance-node {
+    font-size: 24px;
+    color: #555;
+    transition: color 0.3s ease;
+  }
+  
+  .text-wrapper {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .dropdown-icon {
+    font-size: 12px;
+    margin-top: 2px;
+    color: #aaa;
+  }
+  
+  .menu-item:hover .icon-instance-node {
+    color: #007bff;
+  }
+  
+  .menu-item:hover .text-wrapper {
+    color: #007bff;
+  }
+  
+  /* Right-Side Menu Section */
+  .right-side-menu {
+    display: flex;
+    align-items: center;
+  }
+  
+  .notif-theme {
+    cursor: pointer;
+  }

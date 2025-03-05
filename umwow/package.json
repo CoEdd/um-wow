@@ -1,0 +1,39 @@
+{
+  "name": "umwow",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.5",
+    "@mui/material": "^6.4.5",
+    "@react-spring/web": "^9.7.5",
+    "classnames": "^2.5.1",
+    "framer-motion": "^12.4.7",
+    "gsap": "^3.12.7",
+    "lucide-react": "^0.477.0",
+    "next": "15.1.7",
+    "openai": "^4.85.1",
+    "react": "^18.2.0",
+    "react-countdown": "^2.3.6",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.5.0",
+    "react-player": "^2.16.0",
+    "react-slick": "^0.30.3",
+    "slick-carousel": "^1.8.1",
+    "umwow": "file:"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.7",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
+  }
+}

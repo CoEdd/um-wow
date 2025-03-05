@@ -1,0 +1,95 @@
+/* styles/Gallery.css */
+.gallery-section {
+    padding: 80px 20px;
+    background-color: #454343; /* Bright background color */
+    color: #201111; /* Dark text color */
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .gallery-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #FB5E84; /* Vibrant color for section title */
+  }
+  
+  .gallery-row {
+    margin-bottom: 40px;
+  }
+  
+  .gallery-row:last-child {
+    margin-bottom: 0;
+  }
+  
+  .polaroid-frame {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .polaroid-frame:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+  .polaroid-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .polaroid-photo:hover {
+    transform: scale(1.05);
+  }
+  
+  .polaroid-text {
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555; /* Subtle color for descriptions */
+  }
+  
+  .polaroid-text p {
+    margin: 0;
+  }
+  
+  /* Slick Slider Custom Styles */
+  .slick-slide {
+    margin: 0 10px;
+  }
+  
+  .slick-list {
+    padding: 0 20px;
+  }
+  
+  .slick-track {
+    display: flex;
+  }
+  
+  .slick-slide img {
+    display: block;
+  }
+  
+  .slick-arrow {
+    display: none !important; /* Hide default arrows */
+  }
+  
+  .slick-dots {
+    bottom: -20px; /* Position dots below the slider */
+  }
+  
+  .slick-dots li button:before {
+    color: #FB5E84; /* Vibrant color for dots */
+    opacity: 0.75;
+  }
+  
+  .slick-dots li.slick-active button:before {
+    opacity: 1;
+    font-size: 16px;
+  }

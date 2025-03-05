@@ -1,0 +1,16 @@
+/* Footer Styles */
+.footer {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: 80px; /* Set a fixed height for the footer */
+    background-color: #f9f9f9; /* Light background color */
+    border-top: 1px solid #ddd; /* Optional: Add a subtle border at the top */
+    text-align: center; /* Ensure text is centered */
+  }
+  
+  .footer p {
+    margin: 0; /* Remove default margin for cleaner alignment */
+    font-size: 0.9rem; /* Adjust font size */
+    color: #555; /* Subtle text color */
+  }

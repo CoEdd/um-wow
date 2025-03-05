@@ -1,0 +1,222 @@
+/* styles/SeniorExperience.css */
+.senior-experience-section {
+    padding: 30px 10px; /* Further reduced padding */
+    background-color: #f9f9f9; /* Bright background color */
+    color: #333; /* Dark text color */
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .senior-experience-section h2 {
+    font-size: 1.8rem; /* Further reduced font size for the section title */
+    margin-bottom: 15px; /* Further reduced margin for the section title */
+    color: #FB5E84; /* Vibrant color for section title */
+  }
+  
+  .experience-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px; /* Further reduced gap between items */
+    margin: auto;
+    max-width: 800px; /* Further reduced max-width for the grid */
+  }
+  
+  .experience-item {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Further reduced gap between photo and text */
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  
+  .experience-item:nth-child(odd) {
+    flex-direction: row;
+  }
+  
+  .experience-item:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+  
+  .experience-item.animate {
+    opacity: 1;
+  }
+  
+  .photo-container {
+    flex: 1;
+    max-width: 150px; /* Further reduced max-width for the photo container */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateX(50%);
+    transition: transform 1s ease;
+  }
+  
+  .experience-item:nth-child(even) .photo-container {
+    transform: translateX(-50%);
+  }
+  
+  .experience-item.animate .photo-container {
+    transform: translateX(0);
+  }
+  
+  .text-container {
+    flex: 1;
+    text-align: left;
+    transform: translateX(-50%);
+    transition: transform 1s ease;
+  }
+  
+  .experience-item:nth-child(even) .text-container {
+    transform: translateX(50%);
+  }
+  
+  .experience-item.animate .text-container {
+    transform: translateX(0);
+  }
+  
+  .photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .photo:hover {
+    transform: scale(1.05);
+  }
+  
+  .speech-bubble {
+    position: relative;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px; /* Limit the width of the speech bubble */
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  
+  .speech-bubble::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent #fff;
+    left: -20px; /* Position the arrow on the left */
+  }
+  
+  .experience-item:nth-child(even) .speech-bubble::before {
+    left: auto;
+    right: -20px; /* Position the arrow on the right */
+    border-color: transparent #fff transparent transparent;
+  }
+  
+  .speech-bubble h3 {
+    font-size: 1.6rem; /* Further reduced font size for names */
+    margin-bottom: 5px; /* Further reduced margin for names */
+    color: #333; /* Dark color for names */
+    transition: color 0.3s ease;
+  }
+  
+  .speech-bubble h3:hover {
+    color: #FB5E84; /* Vibrant color on hover */
+  }
+  
+  .speech-bubble .role {
+    font-size: 1rem; /* Further reduced font size for roles */
+    margin-bottom: 10px; /* Further reduced margin for roles */
+    color: #555; /* Subtle color for roles */
+  }
+  
+  .speech-bubble .description {
+    font-size: 0.9rem; /* Further reduced font size for descriptions */
+    color: #333; /* Dark color for descriptions */
+  }
+  
+  @media (min-width: 768px) {
+    .senior-experience-section {
+      padding: 40px 20px; /* Slightly increased padding for larger screens */
+    }
+  
+    .senior-experience-section h2 {
+      font-size: 2rem; /* Slightly increased font size for larger screens */
+      margin-bottom: 20px; /* Slightly increased margin for larger screens */
+    }
+  
+    .experience-grid {
+      grid-template-columns: 1fr;
+      gap: 20px; /* Slightly increased gap between items */
+      max-width: 1000px; /* Slightly increased max-width for the grid */
+    }
+  
+    .experience-item {
+      gap: 10px; /* Slightly increased gap between photo and text */
+    }
+  
+    .photo-container {
+      max-width: 200px; /* Slightly increased max-width for larger screens */
+    }
+  
+    .speech-bubble {
+      padding: 15px 20px;
+      max-width: 600px; /* Increased max-width for larger screens */
+    }
+  
+    .speech-bubble h3 {
+      font-size: 1.8rem; /* Slightly increased font size for larger screens */
+    }
+  
+    .speech-bubble .role {
+      font-size: 1.2rem; /* Slightly increased font size for larger screens */
+    }
+  
+    .speech-bubble .description {
+      font-size: 1rem; /* Slightly increased font size for larger screens */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .senior-experience-section {
+      padding: 50px 30px; /* Slightly increased padding for larger screens */
+    }
+  
+    .senior-experience-section h2 {
+      font-size: 2.2rem; /* Slightly increased font size for larger screens */
+      margin-bottom: 25px; /* Slightly increased margin for larger screens */
+    }
+  
+    .experience-grid {
+      grid-template-columns: 1fr;
+      gap: 25px; /* Slightly increased gap between items */
+      max-width: 1200px; /* Slightly increased max-width for the grid */
+    }
+  
+    .experience-item {
+      gap: 15px; /* Slightly increased gap between photo and text */
+    }
+  
+    .photo-container {
+      max-width: 250px; /* Slightly increased max-width for larger screens */
+    }
+  
+    .speech-bubble {
+      padding: 20px 25px;
+      max-width: 700px; /* Increased max-width for larger screens */
+    }
+  
+    .speech-bubble h3 {
+      font-size: 2rem; /* Slightly increased font size for larger screens */
+    }
+  
+    .speech-bubble .role {
+      font-size: 1.4rem; /* Slightly increased font size for larger screens */
+    }
+  
+    .speech-bubble .description {
+      font-size: 1.1rem; /* Slightly increased font size for larger screens */
+    }
+  }

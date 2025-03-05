@@ -1,0 +1,74 @@
+/* styles/LaunchCountdown.module.css */
+.countdownSection {
+    position: relative;
+    padding: 150px 2px; /* Increased padding for more vertical space */
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    min-height: 300px; /* Minimum height to ensure vertical space */
+  }
+  
+  /* Stars Background */
+  .countdownSection::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("/images/bg-stars.svg") repeat;
+    z-index: -1;
+  }
+  
+  /* Hills Pattern */
+  .countdownSection::after {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    height: 250px; /* Increased height of the hills */
+    background: url("/images/pattern-hills.svg") repeat-x bottom;
+    background-size: contain;
+    z-index: -1;
+  }
+
+  .countdownHeaderText {
+    font-size: 2.5cap;
+    font-weight: bold;
+    margin-bottom: 50px; /* Space between header text and countdown */
+    color: #00000; /* Same color as countdown numbers for consistency */
+    font-family: 'Montserrat', sans-serif; /* Apply Montserrat font to header text */
+  }
+  
+  .countdownContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Ensures space between each block */
+    flex-wrap: nowrap; /* Prevents them from stacking */
+    width: 100%;
+    max-width: 800px; /* Increase width if necessary */
+    margin: auto;
+  }
+  
+  .countdownComplete {
+    font-size: 2rem;
+    color: #28a745; /* Green color for success */
+    font-weight: bold;
+    text-align: center;
+  }
+
+  /* styles/LaunchCountdown.module.css */
+.countdownSection::before {
+    animation: parallax 10s linear infinite;
+  }
+  
+  @keyframes parallax {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-50%);
+    }
+  }

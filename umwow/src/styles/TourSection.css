@@ -1,0 +1,29 @@
+/* Tour Section */
+.tour-section {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #8B0000; /* Dark red background color */
+  }
+  
+  .tour-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: white; /* Change text color to white for better contrast */
+  }
+  
+  .video-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Limit the maximum width of the video */
+    aspect-ratio: 16 / 9; /* Maintain a 16:9 aspect ratio */
+    margin: 0 auto; /* Center the video container */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add a subtle shadow with darker intensity */
+  }
+  
+  .react-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
