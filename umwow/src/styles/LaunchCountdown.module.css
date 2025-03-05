@@ -37,7 +37,7 @@
     font-size: 2.5cap;
     font-weight: bold;
     margin-bottom: 50px; /* Space between header text and countdown */
-    color: #00000; /* Same color as countdown numbers for consistency */
+    color: #0000; /* Same color as countdown numbers for consistency */
     font-family: 'Montserrat', sans-serif; /* Apply Montserrat font to header text */
   }
   
