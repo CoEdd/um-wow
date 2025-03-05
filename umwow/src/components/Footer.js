@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import "../styles/Footer.css";
 
@@ -15,3 +16,15 @@ const Footer = () => {
 };
 
 export default Footer;
+=======
+// components/Footer.js
+const Footer = () => {
+    return (
+      <footer className="footer">
+        <p>&copy; 2023 UM-WOW. All rights reserved.</p>
+      </footer>
+    );
+  };
+  
+  export default Footer;
+>>>>>>> da81444571cf0db356f37a5599a9e724ca938fb7

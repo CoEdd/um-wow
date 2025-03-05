@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -127,3 +128,19 @@ export default function AppAppBar() {
     </AppBar>
   );
 }
+=======
+const Navbar = () => {
+    return (
+      <nav className="navbar">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#chatbot">Chatbot</a></li>
+        </ul>
+      </nav>
+    );
+};
+
+export default Navbar;
+>>>>>>> da81444571cf0db356f37a5599a9e724ca938fb7
