@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState } from "react";
 import "../styles/FaqSection.css";
 
@@ -69,24 +68,9 @@ const FAQSection = () => {
             {activeIndex === index && <p className="faq-answer">{faq.answer}</p>}
           </li>
         ))}
-=======
-const FAQSection = () => {
-  return (
-    <section id="faq">
-      <h2>Frequently Asked Questions</h2>
-      <ul>
-        <li>What is UM-WOW?</li>
-        <li>When is the event?</li>
-        <li>How can I join?</li>
-        {/* Add more FAQs */}
->>>>>>> da81444571cf0db356f37a5599a9e724ca938fb7
       </ul>
     </section>
   );
 };
 
-<<<<<<< HEAD
 export default FAQSection;
-=======
-export default FAQSection;
->>>>>>> da81444571cf0db356f37a5599a9e724ca938fb7
