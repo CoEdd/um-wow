@@ -1,12 +1,35 @@
-import React, { useState } from "react";
-import "../styles/FaqSection.css";
+// components/FAQSection.js
+import React, { useEffect, useState } from 'react';
+import styles from '../styles/FAQSection.module.css'; // Import your CSS module
 
 const FAQSection = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [scrollVisible, setScrollVisible] = useState([]); // Controls the animation on scroll
+  const [activeIndices, setActiveIndices] = useState([]); // Controls the FAQ open/close toggle
 
-  // Toggle the active FAQ item
+  // Handle scroll animation
+  useEffect(() => {
+    const handleScroll = () => {
+      const faqSection = document.getElementById('faq');
+      if (faqSection) {
+        const sectionTop = faqSection.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (sectionTop < windowHeight - 100) {
+          setScrollVisible([0, 1, 2, 3, 4, 5, 6]); // Trigger animation once
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Run once in case it's already in view
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Toggle FAQ answer
   const toggleAnswer = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
+    setActiveIndices((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
+    );
   };
 
   // FAQ Data
@@ -14,61 +37,91 @@ const FAQSection = () => {
     {
       question: "What is UM-WOW?",
       answer:
-        "UM-WOW stands for 'Ultimate Mentorship - Way of Wisdom.' It is an exclusive mentorship program designed to empower participants with the skills, knowledge, and guidance needed to achieve personal and professional growth. Through interactive sessions, workshops, and one-on-one mentorship, UM-WOW aims to inspire individuals to unlock their full potential.",
+        "UM-WOW stands for 'Ultimate Mentorship - Way of Wisdom.' It is an exclusive mentorship program designed to empower participants with skills, knowledge, and guidance for personal and professional growth.",
     },
     {
       question: "When is the event?",
       answer:
-        "The UM-WOW event is scheduled to take place from November 15th to November 17th, 2023. The program will run for three days, with sessions held both online and offline to accommodate participants from different locations.",
+        "The UM-WOW event is scheduled from November 15th to November 17th, 2023. Sessions will be held both online and offline.",
     },
     {
       question: "How can I join?",
       answer:
-        "Joining UM-WOW is easy! Follow these steps:\n" +
-        "1. Register Online: Visit our official website at www.um-wow.com/register and fill out the registration form.\n" +
-        "2. Pay the Registration Fee: A nominal fee of $25 is required to secure your spot (scholarships are available for eligible candidates).\n" +
-        "3. Receive Confirmation: Once registered, you’ll receive a confirmation email with further instructions and access details.\n" +
-        "For any queries during registration, feel free to contact us at support@um-wow.com.",
+        "Register at www.um-wow.com/register, pay a $25 fee (scholarships available), and receive confirmation via email.",
     },
     {
       question: "Who can participate?",
       answer:
-        "UM-WOW is open to individuals aged 18 and above who are eager to learn and grow. Whether you’re a student, a working professional, or someone looking to pivot in your career, this program is designed to cater to diverse audiences.",
+        "Anyone aged 18 and above is welcome — students, professionals, or anyone looking for growth.",
     },
     {
       question: "Will there be certificates provided?",
       answer:
-        "Yes! All participants who successfully complete the UM-WOW program will receive a certificate of participation. This certificate acknowledges your commitment to self-improvement and can be added to your resume or LinkedIn profile.",
+        "Yes! Participants completing the program will receive a certificate of participation.",
     },
     {
       question: "Is the event online or offline?",
       answer:
-        "UM-WOW is a hybrid event, meaning you can choose to attend either online (via Zoom or our dedicated platform) or offline at our main venue in New York City. Please select your preferred mode of attendance during registration.",
+        "UM-WOW is hybrid — you can join online or attend at our venue in New York City.",
     },
     {
       question: "Can I get a refund if I can’t attend?",
       answer:
-        "We offer refunds up to 7 days before the event start date. If you need to cancel your registration, please email us at refunds@um-wow.com with your request. Note that a small processing fee may apply.",
+        "Refunds are available up to 7 days before the event. Email refunds@um-wow.com.",
     },
   ];
 
   return (
-    <section id="faq">
-      <h2>Frequently Asked Questions</h2>
-      <ul className="faq-list">
-        {faqs.map((faq, index) => (
-          <li key={index} className="faq-item">
-            <button
-              className={`faq-question ${activeIndex === index ? "active" : ""}`}
-              onClick={() => toggleAnswer(index)}
-            >
-              {faq.question}
-              <span className="icon">{activeIndex === index ? "-" : "+"}</span>
-            </button>
-            {activeIndex === index && <p className="faq-answer">{faq.answer}</p>}
-          </li>
-        ))}
-      </ul>
+    <section id="faq" className={styles.faq}>
+      <div className="container">
+        <div className="row py-5 justify-content-center align-items-center">
+          {/* Section Title */}
+          <div className="col-md-8 col-sm-11 text-center">
+            <div className="section-title mb-5">
+              <h2 className="fs-1 fw-bold text-light">FREQUENTLY ASKED QUESTIONS</h2>
+            </div>
+          </div>
+
+          <div className="col-md-10 col-sm-10">
+            <div className="accordion" id="questions">
+              {faqs.map((faq, index) => (
+                <div
+                  key={index}
+                  className={`accordion-item my-4 ${styles.accordionItem} 
+                    ${scrollVisible.includes(index) ? styles.visible : ''} 
+                    ${index % 2 === 0 ? styles.slideLeft : styles.slideRight}`}
+                >
+                  <h2 className="accordion-header" id={`heading-${index}`}>
+                    <button
+                      className={`accordion-button collapsed ${styles.accordionButton} 
+                        ${activeIndices.includes(index) ? styles.active : ''}`}
+                      type="button"
+                      onClick={() => toggleAnswer(index)}
+                      aria-expanded={activeIndices.includes(index)}
+                      aria-controls={`question-${index}`}
+                    >
+                      {faq.question}
+                      <span className={styles.icon}>{activeIndices.includes(index) ? "-" : "+"}</span>
+                    </button>
+                  </h2>
+                  <div
+                    id={`question-${index}`}
+                    className={`accordion-collapse ${styles.accordionCollapse}`}
+                    style={{
+                      maxHeight: activeIndices.includes(index) ? '500px' : '0',
+                    }}
+                    aria-labelledby={`heading-${index}`}
+                  >
+                    <div className={`accordion-body ${styles.accordionBody}`}>
+                      <p>{faq.answer}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
