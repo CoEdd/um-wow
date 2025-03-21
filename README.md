@@ -90,6 +90,8 @@ Here’s an overview of the project structure:
  ├── .env.local            # Environment variables
  ├── next.config.mjs       # Next.js configuration
  └── package.json          # Project dependencies
+
+ need to add
 ```
 
 ---
