@@ -199,7 +199,7 @@
     letter-spacing: 3px;
     color: #8385A9;
     margin-top: 9px;
-    /* Default font for labels */
+    font-family: 'Montserrat';
   }
   
   @media (min-width: 768px) {

@@ -54,10 +54,10 @@ const LaunchCountdown = () => {
       </div>
       {time > 0 ? (
         <div className={styles.countdownContainer}>
-          <Countdown prev={prevRemainTime.days} count={remainTime.days} label={'days'} shouldFlip={shouldFlip} />
-          <Countdown prev={prevRemainTime.hours} count={remainTime.hours} label={'hours'} shouldFlip={shouldFlip} />
-          <Countdown prev={prevRemainTime.minutes} count={remainTime.minutes} label={'minutes'} shouldFlip={shouldFlip} />
-          <Countdown prev={prevRemainTime.seconds} count={remainTime.seconds} label={'seconds'} shouldFlip={shouldFlip} />
+          <Countdown prev={prevRemainTime.days} count={remainTime.days} label={'Days'} shouldFlip={shouldFlip} />
+          <Countdown prev={prevRemainTime.hours} count={remainTime.hours} label={'Hours'} shouldFlip={shouldFlip} />
+          <Countdown prev={prevRemainTime.minutes} count={remainTime.minutes} label={'Minutes'} shouldFlip={shouldFlip} />
+          <Countdown prev={prevRemainTime.seconds} count={remainTime.seconds} label={'Seconds'} shouldFlip={shouldFlip} />
         </div>
       ) : (
         <div className={styles.countdownComplete}>The event has started!</div>
