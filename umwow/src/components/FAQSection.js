@@ -13,8 +13,8 @@ const FAQSection = () => {
       if (faqSection) {
         const sectionTop = faqSection.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
-        if (sectionTop < windowHeight - 100) {
-          setScrollVisible([0, 1, 2, 3, 4, 5, 6]); // Trigger animation once
+        if (sectionTop < windowHeight - 100 && scrollVisible.length === 0) { // Trigger animation only once
+          setScrollVisible([0, 1, 2, 3, 4, 5, 6]);
         }
       }
     };
@@ -23,7 +23,7 @@ const FAQSection = () => {
     handleScroll(); // Run once in case it's already in view
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [scrollVisible]);
 
   // Toggle FAQ answer
   const toggleAnswer = (index) => {
@@ -76,8 +76,8 @@ const FAQSection = () => {
       <div className="container">
         <div className="row py-5 justify-content-center align-items-center">
           {/* Section Title */}
-          <div className="col-md-8 col-sm-11 text-center">
-            <div className="section-title mb-5">
+          <div className="col-12 text-center">
+            <div className={`section-title mb-5 ${styles.title}`}>
               <h2 className="fs-1 fw-bold text-light">FREQUENTLY ASKED QUESTIONS</h2>
             </div>
           </div>
@@ -108,7 +108,7 @@ const FAQSection = () => {
                     id={`question-${index}`}
                     className={`accordion-collapse ${styles.accordionCollapse}`}
                     style={{
-                      maxHeight: activeIndices.includes(index) ? '500px' : '0',
+                      maxHeight: activeIndices.includes(index) ? '200px' : '0', // Adjust max-height as needed
                     }}
                     aria-labelledby={`heading-${index}`}
                   >

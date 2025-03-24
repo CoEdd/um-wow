@@ -1,0 +1,143 @@
+.faq {
+  background-image: radial-gradient(circle, rgba(255, 126, 95, 0.75) -20%, rgba(44, 62, 80, 1) 55%);
+  padding: 60px 20px;
+  margin-top: 0;
+  position: relative;
+}
+
+.title {
+  text-align: center;
+}
+
+.accordionWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Adds gap between items */
+}
+
+.accordionItem {
+  background: linear-gradient(to right, #2c3e50 0%, #ff7e5f 50%, #feb47b 100%);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 1s ease, transform 1s ease;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  min-height: 80px; /* Shorter height */
+}
+
+.slideLeft {
+  transform: translateX(100%);
+}
+
+.slideRight {
+  transform: translateX(-100%);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.accordionButton {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: white;
+  transition: all 0.4s ease-out;
+  background-image: linear-gradient(to right, #2c3e50 0%, #ff7e5f 50%, #feb47b 100%);
+  background-size: cover;
+  border-radius: 15px;
+  padding: 10px;
+  outline: none;
+  width: 100%;
+  text-align: left;
+  border: none;
+  min-height: 8px; /* Shorter button height */
+}
+
+.accordionButton:hover {
+  transform: scale(1.02);
+  color: #ff6347;
+}
+
+.accordionButton.active {
+  background-image: linear-gradient(to right, #ff7e5f 0%, #feb47b 50%, #2c3e50 100%);
+  color: #ff6347;
+}
+
+.accordionCollapse {
+  background: linear-gradient(to right, #2c3e50 0%, #ff7e5f 50%, #feb47b 100%);
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  padding: 0;
+  color: white;
+  font-weight: 500;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.accordionBody {
+  padding: 15px;
+  color: white;
+  font-weight: 500;
+  transition: all 0.4s ease-out;
+}
+
+.icon {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
+  margin-left: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .accordionButton {
+    font-size: 1em;
+    min-height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .accordionButton {
+    font-size: 0.9em;
+    min-height: 60px;
+  }
+}
+
+/* Animation Keyframes */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Apply Animations */
+.slideLeft.visible {
+  animation: slideInLeft 1s ease forwards;
+}
+
+.slideRight.visible {
+  animation: slideInRight 1s ease forwards;
+}
+
+/* Hover Morph Effect */
+.accordionItem:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
